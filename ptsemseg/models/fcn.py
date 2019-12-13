@@ -38,11 +38,14 @@ class fcn8s(nn.Module):
             nn.ReLU(inplace=True),
             nn.MaxPool2d(2, stride=2, ceil_mode=True),
         )
-
-        ## todo:
-        # conv_block2 = nn.Sequential()
-        # conv_block2 is missing. However, you know the block2 is similar to block1 with deeper CNN structure.
-        # Can you find it out?
+        
+        self.conv_block2 = nn.Sequential(
+            nn.Conv2d(c1, c2, 3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(c2, c2, 3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, stride=2, ceil_mode=True),
+        )
 
         self.conv_block3 = nn.Sequential(
             nn.Conv2d(c2, c3, 3, padding=1),
@@ -53,10 +56,16 @@ class fcn8s(nn.Module):
             nn.ReLU(inplace=True),
             nn.MaxPool2d(2, stride=2, ceil_mode=True),
         )
-
-        # todo:
-        # conv_block4 is missing. However, you know the block4 is similar to block3 with deeper CNN structure.
-        # Can you find it out?
+        
+        self.conv_block4 = nn.Sequential(
+            nn.Conv2d(c3, c4, 3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(c4, c4, 3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(c4, c4, 3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(2, stride=2, ceil_mode=True),
+        )
         
         self.conv_block5 = nn.Sequential(
             nn.Conv2d(c4, c5, 3, padding=1),

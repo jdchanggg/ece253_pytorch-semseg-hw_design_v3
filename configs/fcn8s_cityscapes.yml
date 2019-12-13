@@ -4,9 +4,11 @@ data:
     dataset: cityscapes
     train_split: train
     val_split: val
+    #val_split: 000000rgb.png
     img_rows: 256 # 512
     img_cols: 512 # 1024
     path: /datasets/cityscapes/
+    #path: /home/jdchang/ece253_pytorch-semseg-hw_design_v3/
     # /private/home/meetshah/misc_code/ps/data/VOCdevkit/VOC2012/
 training:
     train_iters: 85000
